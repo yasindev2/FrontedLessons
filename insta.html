@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left {
+            display: block;
+        }
+
+        .left img {
+            width: 250px;
+        }
+
+        .right {
+            background: white;
+            border: 1px solid #ccc;
+            padding: 40px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .right h1 {
+            font-family: 'Cookie', cursive;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fafafa;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3897f0;
+            color: white;
+            border: 5px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .divider:not(:empty)::before {
+            margin-right: .5em;
+        }
+
+        .divider:not(:empty)::after {
+            margin-left: .5em;
+        }
+
+        .facebook-login {
+            color: #385185;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .forgot {
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .left {
+                display: block;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="assets/insta_img.png" alt="image">
+        </div>
+
+        <div class="right">
+            <h1>Instagram</h1>
+            <input type="text" placeholder="Phone number, username, or email">
+            <input type="password" placeholder="Write your password">
+            <button>Login</button>
+            <div class="divider">OR</div>
+            <div class="facebook-login">Login with Facebook</div>
+            <div class="forgot">Forgot password?</div>
+        </div>
+    </div>
+</body>
+
+</html>
