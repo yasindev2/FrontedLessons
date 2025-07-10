@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram clone </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* font-family: 'Archivo', sans-serif;
+font-family: 'Inconsolata', monospace;
+font-family: 'Merriweather', serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Signika', sans-serif; */
+:root{
+    --background-color:rgb(252, 251, 251);
+    --font-color:rgb(0, 0, 0);
+    --secod-font-color:rgb(101, 101, 101);
+    --secondary-font-color : rgb(179, 179, 179);
+    --background-on-hover:rgb(215, 214, 214);
+}
+.dark-mode{
+    --background-color:rgb(15, 15, 15);
+    --font-color:rgb(254, 252, 252);
+    --secod-font-color:rgb(197, 195, 195);
+    --secondary-font-color : rgb(108, 106, 106);
+    --background-on-hover:rgba(52, 51, 51, 0.834);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+p{
+  font-family: 'Roboto', sans-serif;
+}
+.container{
+    display: flex;
+    /* gap: 10px; */
+   /* overflow-x: hidden; */
+}
+.middle-section{
+    display: flex;
+    justify-content: space-evenly;
+    /* width: 100%; */
+}
+a{
+    text-decoration: none;
+    color: var(--font-color);
+    font-family: 'Signika', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 550;
+}
+body{
+    background-color: var(--background-color);
+    overflow-x: hidden;
+    /* border: 1px solid red; */
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+/* styling navbar section  */
+.navbar{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100vh;
+    width: 245px;
+    /* justify-content: space-between; */
+    background-color: var(--background-color);
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-inline:  10px;
+    border-right: 0.1px solid rgba(76, 75, 75, 0.737);
+    position: sticky;
+    top: 0px;
+
+
+}
+@media (max-width:750px) {
+    .container .navbar{
+        flex-direction: row;
+        background-color: var(--background-color);
+        position: fixed;
+        z-index: 1000;
+        height: 60px;
+        bottom: -1px;
+        top: auto;
+        gap: 0;
+        border-right:none;
+        width: 100vw;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0;
+        box-shadow: -1px 14px 20px 4px black;
+    }
+    .middle-section .post-section{
+        padding: 40px 5px;
+    }
+    .navbar a{
+        display: none;
+    }
+    .navbar .sub-section{
+        padding: 10px 10px;
+    }
+
+    #hidden{
+        display: none;
+    }
+    #hidden1{
+        display: none;
+    }
+    #hidden2{
+        display: none;
+    }
+  .instagram-text-logo{
+        display: none;
+
+    }
+
+
+}
+@media (max-width:1198px) {
+    .navbar .sub-section a{
+        display: none;
+    }
+    .navbar .menu-section a{
+        display: none;
+    }
+    .navbar .sub-section{
+        gap: 0;
+    }
+    .instagram-text-logo{
+        display: none;
+        /* position: absolute; */
+    }
+    .navbar{
+        width: 79px;
+    }
+}
+@media (max-width:1003px) {
+    .follow-section{
+        display: none;
+    }
+    .middle-section .post-area{
+        padding-inline: 0;
+    }
+}
+@media (max-width:690px) {
+
+  .post-section .story-section{
+        justify-content: space-evenly;
+    }
+    .story-section #story-7{
+        display: none;
+    }
+
+}
+@media (max-width:562px){
+    .story-section #story-6{
+        display: none;
+    }
+}
+@media (max-width:482px){
+    .story-section #story-5{
+        display: none;
+    }
+}
+@media (max-width:402px){
+    .story-section #story-4{
+        display: none;
+    }
+}
+@media (max-width:323px){
+    #story-3{
+        display: none;
+    }
+}
+@media (max-width:259px){
+    #story-2{
+        display: none;
+    }
+}
+.instagram-text-logo{
+    width: 150px;
+    margin: 5px 30px;
+    cursor: pointer;
+}
+.instagram-text-logo img{
+    width: 100%;
+    /* filter: brightness(5); */
+}
+
+.sub-section{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: all 0.2s ease;
+}
+.sub-section:hover{
+    background-color: var(--background-on-hover);
+}
+.sub-section:hover i{
+    transform: scale(1.07);
+    transition: all 0.2s ease;
+}
+.sub-section:hover a{
+    font-weight: 600;
+}
+.sub-section:hover .profile-img{
+    transform: scale(1.07);
+    transition: all 0.2s ease;
+}
+.sub-section i{
+    font-size: 1.3rem;
+    color: var(--font-color);
+    transition: all 0.2s ease;
+
+}
+.profile-img{
+    width: 22px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.profile-img img{
+    width: 100%;
+    border-radius: 50%;
+}
+.menu-section{
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    /* position: absolute;
+    bottom: 10px; */
+    margin-top: 23px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+.menu-section:hover{
+    background-color: var(--background-on-hover);
+}
+.menu-section:hover i{
+   transform: scale(1.07);
+   transition: all 0.2s ease;
+}
+.menu-section i{
+    color: var(--font-color);
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+}
+/* post section started frome here */
+.post-section{
+    padding:20px 20px;
+    /* border: 2px solid pink; */
+    background-color: var(--background-color);
+    max-width: 660px;
+
+}
+.story-section{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    /* width: 100%;
+    overflow:scroll; */
+    /* overflow-x: auto; */
+}
+.story{
+    overflow: hidden;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.story-image{
+    /* height: 60px;
+    width: 55px; */
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+    width: 65px;
+    background-image: cover;
+}
+.story-image img{
+    width: 90%;
+    height: 90%;
+    border: 2px solid var(--background-color);
+    border-radius: 50%;
+    background-image: cover;
+    background-position: center;
+    background-size: cover;
+}
+.story span{
+    font-family: 'Roboto', sans-serif;
+    color: var(--font-color);
+    font-size: 0.8rem;
+    font-weight: 500;
+
+}
+
+
+
+
+.post-area{
+    margin-top: 50px;
+    padding-inline: 80px;
+    margin-bottom: 50px;
+}
+.post-main{
+    color: var(--font-color);
+}
+.post-image{
+    width: 40px;
+    height: 40px;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.post-image img{
+    width: 90%;
+    height: 90%;
+    border: 2px solid var(--background-color);
+    border-radius: 50%;
+}
+.post-username{
+    color: var(--font-color);
+    font-size: 1rem;
+
+}
+.one-day{
+    font-size: 0.8rem;
+    color: var(--secod-font-color);
+}
+.post-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding-inline: 5px;
+}
+.post-header i{
+    color: var(--font-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.post-header i:hover{
+    color: var(--secondary-font-color);
+}
+.post-left-header{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+.post-left-header i{
+    color: rgb(85, 85, 250);
+}
+.post-left-header i:hover{
+    color: rgb(30, 30, 150);
+}
+.post-main-image{
+    margin-top: 10px;
+    width: 100%;
+}
+.post-main-image img{
+    width: 100%;
+    border-radius: 1px;
+}
+.post-fotter{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7px;
+    padding-inline: 5px;
+
+}
+.post-fotter i{
+    font-size: 1.2rem;
+    cursor: pointer;
+    /* font-weight: 2000; */
+    transition: all 0.2s ease;
+}
+.post-fotter i:hover{
+    color: var(--secondary-font-color);
+}
+.post-fotter-left{
+    display: flex;
+    gap: 20px;
+}
+.post-description{
+    margin-block: 3px;
+    padding-inline: 5px;
+}
+.post-liked{
+    margin-block: 7px;
+    font-size: 0.8rem;
+    color: var(--secod-font-color);
+    cursor: pointer;
+}
+.title{
+    font-size: 0.9rem;
+    color: var(--secod-font-color);
+    cursor: pointer;
+}
+.title span{
+    color: var(--font-color);
+    font-weight: bold;
+}
+.comments{
+    margin-block: 5px;
+    font-size: 0.8rem;
+    color: var(--secod-font-color);
+    cursor: pointer;
+}
+/* profile follow section startted fome here */
+
+.profile-follow-image{
+    width: 40px;
+    height: 40px;
+}
+.profile-follow-image img{
+    width: 100%;
+    border-radius: 50%;
+    height: 100%;
+}
+.profile-follow-content{
+    color: var(--font-color)
+}
+.profile-follow-left{
+    display: flex;
+    gap: 20px;
+    cursor: pointer;
+}
+.profile-follow{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block: 7px;
+}
+.profile-follow-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.follow{
+    color: rgb(19, 85, 240);
+    font-weight: 20;
+    font-size: 0.7rem;
+    font-weight: 550;
+    line-height: 0.1;
+    transition: all 0.1s ease;
+}
+.follow:hover{
+    color: var(--font-color);
+}
+.profile-id{
+    color: var(--font-color);
+    font-size: 0.8rem;
+    font-weight: 550;
+}
+.profile-name{
+    color: var(--secod-font-color);
+    font-size: 0.7rem;
+    margin-top: 5px;
+    font-weight: 100;
+}
+.suggestion{
+    color: var(--secod-font-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.see-all{
+    color: var(--secod-font-color);
+    font-size: 0.8rem;
+    transition: all 0.1s ease;
+}
+.see-all:hover{
+    color: var(--secondary-font-color);
+}
+.follow-section{
+    margin-top: 46px;
+    width: 320px;
+    padding: 10px 20px;
+}
+.suggestion-follow{
+    display: flex;
+    justify-content: space-between;
+    color: var(--font-color);
+    margin-block: 10px;
+}
+.copyrights{
+    color: var(--secod-font-color);
+    font-size: 0.9rem;
+    margin-top: 50px;
+    text-align: center;
+}
+.profile-foolow-hovering{
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.1s ease-in-out;
+}
+.profile-foolow-hovering:hover{
+    background-color: var(--background-on-hover);
+}
+
+
+
+.nav-hidden{
+    display: none;
+}
+.nav-hidden i{
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--font-color);
+    transition: all 0.2s ease;
+}
+.nav-hidden i:hover{
+    color: var(--secondary-font-color);
+}
+.nav-hidden-logo{
+    width: 136px;
+    cursor: pointer;
+}
+.nav-hidden-logo img{
+    width: 100%;
+}
+.nav-hide-2{
+    display: flex;
+    gap: 30px;
+}
+@media (max-width:750px){
+    .nav-hidden{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-inline: 10px;
+        align-items: center;
+    }
+     .middle-section .post-section{
+        padding: 0;
+        padding-bottom: 20px;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- starting nav section of instagram -->
+        <nav>
+            <div class="navbar">
+                <div class="instagram-text-logo">
+                    <img decoding="async" src="https://i.postimg.cc/qMFTcDw1/instagram-text.png" id="white-color"
+                        alt="">
+                </div>
+                <div class="sub-section" id="clicked">
+                    <i class="fa-solid fa-house"></i>
+                    <a href="#">Dark-mode</a>
+                </div>
+                <div class="sub-section">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <a href="#">Search</a>
+                </div>
+                <div class="sub-section">
+                    <i class="fa-regular fa-compass"></i>
+                    <a href="#">Explore</a>
+                </div>
+                <div class="sub-section">
+                    <i class="fa-solid fa-clapperboard"></i>
+                    <a href="#">Reels</a>
+                </div>
+                <div class="sub-section">
+                    <i class="fa-regular fa-message"></i>
+                    <a href="#">Messages</a>
+                </div>
+                <div class="sub-section" id="hidden2">
+                    <i class="fa-regular fa-heart"></i>
+                    <a href="#">Notification</a>
+                </div>
+                <div class="sub-section" id="hidden1">
+                    <i class="fa-solid fa-square-plus"></i>
+                    <a href="#">Create</a>
+                </div>
+                <div class="sub-section">
+                    <div class="profile-img">
+                        <img decoding="async" src="https://i.postimg.cc/zB3mRnhs/apy-logo.png" alt="">
+                    </div>
+                    <a href="#">Profile</a>
+                </div>
+                <div class="menu-section " id="hidden">
+                    <i class="fa-solid fa-bars"></i>
+                    <a href="#">More</a>
+                </div>
+            </div>
+
+        </nav>
+        <div class="middle-section">
+            <div class="post-section">
+                <div class="nav-hidden">
+                    <div class="nav-hidden-logo" id="white-2color">
+                        <img decoding="async" src="https://i.postimg.cc/qMFTcDw1/instagram-text.png" alt="">
+                    </div>
+                    <div class="nav-hide-2">
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-paper-plane"></i>
+                    </div>
+                </div>
+                <div class="story-section">
+                    <div class="story">
+                        <div class="story-image">
+                            <img decoding="async"
+                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZSUyMGltYWdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <span>Aaradhya_gu.</span>
+                    </div>
+                    <div class="story">
+                        <div class="story-image">
+                            <img decoding="async"
+                                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZSUyMGltYWdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <span>Adah_paret..</span>
+                    </div>
+                    <div class="story" id="story-2">
+                        <div class="story-image">
+                            <img decoding="async"
+                                src="https://images.unsplash.com/photo-1517702145080-e4a4d91435bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHByb2ZpbGUlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <span>Adhira_boi..</span>
+                    </div>
+                    <div class="story" id="story-3">
+                        <div class="story-image">
+                            <img decoding="async"
+                                src="https://media.istockphoto.com/id/1418475387/photo/robotic-hand-pressing-a-keyboard-on-a-laptop-3d-rendering.webp?b=1&s=612x612&w=0&k=20&c=bqtiTjtbsN85HMdO40gidWq6uE4BW1-RGlUOkSfEgoI="
+                                alt="">
+                        </div>
+                        <span>Anika@189</span>
+                    </div>
+                    <div class="story" id="story-4">
+                        <div class="story-image">
+                            <img decoding="async"
+                                src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZmlsZSUyMGltYWdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <span>Kashvi_tut</span>
+                    </div>
+                    <div class="story" id="story-5">
+                        <div class="story-image">
+                            <img decoding="async"
+                                src="https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cHJvZmlsZSUyMGltYWdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <span>Rebecca.io</span>
+                    </div>
+                    <div class="story" id="story-6">
+                        <div class="story-image">
+                            <img decoding="async"
+                                src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <span>Sahana_pie.</span>
+                    </div>
+                    <div class="story" id="story-7">
+                        <div class="story-image">
+                            <img decoding="async"
+                                src="https://plus.unsplash.com/premium_photo-1664453546896-ad5e0f895eab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <span>Zara_comp</span>
+                    </div>
+                </div>
+                <div class="post-area">
+                    <div class="post-main">
+                        <div class="post-header">
+                            <div class="post-left-header">
+                                <div class="post-image">
+                                    <img decoding="async"
+                                        src="https://images.unsplash.com/photo-1461800919507-79b16743b257?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG1lbnMlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
+                                        alt="">
+                                </div>
+                                <p class="post-username">
+                                    Vin Diesel</p>
+                                <i class="fa-solid fa-certificate"></i>
+                                <span class="one-day"> . 1h </span>
+                            </div>
+                            <i class="fa-solid fa-grip-lines"></i>
+                        </div>
+                        <div class="post-main-image">
+                            <img decoding="async"
+                                src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHRlY2hub2xvZ3l8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <div class="post-fotter">
+                            <div class="post-fotter-left">
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-regular fa-message"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                            <i class="fa-regular fa-bookmark"></i>
+                        </div>
+                        <div class="post-description">
+                            <p class="post-liked">Liked by sarasshree and others</p>
+                            <p class="title"><span>balcoo </span>Monsoon fury rained havoc in various parts of Himachal
+                                Pradesh this year with the death toll crossing 260. The rains...<br> more</p>
+                            <p class="comments"> view all comments</p>
+                        </div>
+                    </div>
+                    <div class="post-main">
+                        <div class="post-header">
+                            <div class="post-left-header">
+                                <div class="post-image">
+                                    <img decoding="async"
+                                        src="https://plus.unsplash.com/premium_photo-1684953583774-ccdded89e093?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Ym95c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                                        alt="">
+                                </div>
+                                <p class="post-username">
+                                    Miley Cyrus</p>
+                                <i class="fa-solid fa-certificate"></i>
+                                <span class="one-day"> . 1d </span>
+                            </div>
+                            <i class="fa-solid fa-grip-lines"></i>
+                        </div>
+                        <div class="post-main-image">
+                            <img decoding="async"
+                                src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHdlYiUyMGRldmxvcG1lbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <div class="post-fotter">
+                            <div class="post-fotter-left">
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-regular fa-message"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                            <i class="fa-regular fa-bookmark"></i>
+                        </div>
+                        <div class="post-description">
+                            <p class="post-liked">Liked by sarasshree and others</p>
+                            <p class="title"><span>
+                                    Jamie Foxx </span>The Union Cabinet on Monday (September 18) approved the Women
+                                Reservation Bill that grants 33 percent reservation for......<br> more</p>
+                            <p class="comments"> view all comments</p>
+                        </div>
+                    </div>
+                    <div class="post-main">
+                        <div class="post-header">
+                            <div class="post-left-header">
+                                <div class="post-image">
+                                    <img decoding="async"
+                                        src="https://cdn.pixabay.com/photo/2016/11/29/01/34/man-1866574_1280.jpg"
+                                        alt="">
+                                </div>
+                                <p class="post-username">
+                                    Katy Perry</p>
+                                <i class="fa-solid fa-certificate"></i>
+                                <span class="one-day"> . 5h </span>
+                            </div>
+                            <i class="fa-solid fa-grip-lines"></i>
+                        </div>
+                        <div class="post-main-image">
+                            <img decoding="async"
+                                src="https://images.unsplash.com/photo-1528109966604-5a6a4a964e8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dmlkZW9zfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <div class="post-fotter">
+                            <div class="post-fotter-left">
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-regular fa-message"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                            <i class="fa-regular fa-bookmark"></i>
+                        </div>
+                        <div class="post-description">
+                            <p class="post-liked">Liked by sarasshree and others</p>
+                            <p class="title"><span>
+                                    John Legend </span>Pal Yaad Aayenge Wo Pal!...<br> more</p>
+                            <p class="comments"> view all comments</p>
+                        </div>
+                    </div>
+                    <div class="post-main">
+                        <div class="post-header">
+                            <div class="post-left-header">
+                                <div class="post-image">
+                                    <img decoding="async"
+                                        src="https://images.unsplash.com/photo-1567591370504-80142b28f1c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a3Jpc2huYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                                        alt="">
+                                </div>
+                                <p class="post-username">
+                                    Lady Gaga</p>
+                                <i class="fa-solid fa-certificate"></i>
+                                <span class="one-day"> . 5d </span>
+                            </div>
+                            <i class="fa-solid fa-grip-lines"></i>
+                        </div>
+                        <div class="post-main-image">
+                            <img decoding="async"
+                                src="https://images.unsplash.com/photo-1694676517357-25cd4d8f67f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <div class="post-fotter">
+                            <div class="post-fotter-left">
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-regular fa-message"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                            <i class="fa-regular fa-bookmark"></i>
+                        </div>
+                        <div class="post-description">
+                            <p class="post-liked">Liked by sarasshree and others</p>
+                            <p class="title"><span>
+                                    Cardi B </span>Monsoon fury rained havoc in various parts of Himachal Pradesh this
+                                year with the death toll crossing 260. The rains...<br> more</p>
+                            <p class="comments"> view all comments</p>
+                        </div>
+                    </div>
+                    <div class="post-main">
+                        <div class="post-header">
+                            <div class="post-left-header">
+                                <div class="post-image">
+                                    <img decoding="async"
+                                        src="https://cdn.pixabay.com/photo/2016/11/29/01/34/man-1866574_1280.jpg"
+                                        alt="">
+                                </div>
+                                <p class="post-username">
+                                    Nicki Minaj</p>
+                                <i class="fa-solid fa-certificate"></i>
+                                <span class="one-day"> . 1w </span>
+                            </div>
+                            <i class="fa-solid fa-grip-lines"></i>
+                        </div>
+                        <div class="post-main-image">
+                            <img decoding="async"
+                                src="https://images.unsplash.com/photo-1692885228334-e3cdcb9cfad7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMTh8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <div class="post-fotter">
+                            <div class="post-fotter-left">
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-regular fa-message"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                            <i class="fa-regular fa-bookmark"></i>
+                        </div>
+                        <div class="post-description">
+                            <p class="post-liked">Liked by sarasshree and others</p>
+                            <p class="title"><span>
+                                    Lana Del Rey </span>A blog post title’s quality also depends on your goals. What
+                                works for increasing click-through rates might not work for social shares. And blog
+                                titles that get tons of social media shares might not be great for search engine
+                                optimization<br> more</p>
+                            <p class="comments"> view all comments</p>
+                        </div>
+                    </div>
+                    <div class="post-main">
+                        <div class="post-header">
+                            <div class="post-left-header">
+                                <div class="post-image">
+                                    <img decoding="async"
+                                        src="https://images.unsplash.com/photo-1567591370504-80142b28f1c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a3Jpc2huYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                                        alt="">
+                                </div>
+                                <p class="post-username">
+                                    Lady Gaga</p>
+                                <i class="fa-solid fa-certificate"></i>
+                                <span class="one-day"> . 5d </span>
+                            </div>
+                            <i class="fa-solid fa-grip-lines"></i>
+                        </div>
+                        <div class="post-main-image">
+                            <img decoding="async"
+                                src="https://plus.unsplash.com/premium_photo-1675433344518-21eb72dfc7a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fG5hdHVyZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <div class="post-fotter">
+                            <div class="post-fotter-left">
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-regular fa-message"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                            <i class="fa-regular fa-bookmark"></i>
+                        </div>
+                        <div class="post-description">
+                            <p class="post-liked">Liked by sarasshree and others</p>
+                            <p class="title"><span>
+                                    Cardi B </span>Monsoon fury rained havoc in various parts of Himachal Pradesh this
+                                year with the death toll crossing 260. The rains...<br> more</p>
+                            <p class="comments"> view all comments</p>
+                        </div>
+                    </div>
+                    <div class="post-main">
+                        <div class="post-header">
+                            <div class="post-left-header">
+                                <div class="post-image">
+                                    <img decoding="async"
+                                        src="https://images.unsplash.com/photo-1567591370504-80142b28f1c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a3Jpc2huYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                                        alt="">
+                                </div>
+                                <p class="post-username">
+                                    Lady Gaga</p>
+                                <i class="fa-solid fa-certificate"></i>
+                                <span class="one-day"> . 5d </span>
+                            </div>
+                            <i class="fa-solid fa-grip-lines"></i>
+                        </div>
+                        <div class="post-main-image">
+                            <img decoding="async"
+                                src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bmV3c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <div class="post-fotter">
+                            <div class="post-fotter-left">
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-regular fa-message"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                            <i class="fa-regular fa-bookmark"></i>
+                        </div>
+                        <div class="post-description">
+                            <p class="post-liked">Liked by sarasshree and others</p>
+                            <p class="title"><span>
+                                    Cardi B </span>Monsoon fury rained havoc in various parts of Himachal Pradesh this
+                                year with the death toll crossing 260. The rains...<br> more</p>
+                            <p class="comments"> view all comments</p>
+                        </div>
+                    </div>
+                    <div class="post-main">
+                        <div class="post-header">
+                            <div class="post-left-header">
+                                <div class="post-image">
+                                    <img decoding="async"
+                                        src="https://images.unsplash.com/photo-1567591370504-80142b28f1c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a3Jpc2huYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                                        alt="">
+                                </div>
+                                <p class="post-username">
+                                    Lady Gaga</p>
+                                <i class="fa-solid fa-certificate"></i>
+                                <span class="one-day"> . 5d </span>
+                            </div>
+                            <i class="fa-solid fa-grip-lines"></i>
+                        </div>
+                        <div class="post-main-image">
+                            <img decoding="async"
+                                src="https://images.unsplash.com/photo-1593376853899-fbb47a057fa0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHJvYm90fGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <div class="post-fotter">
+                            <div class="post-fotter-left">
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-regular fa-message"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                            <i class="fa-regular fa-bookmark"></i>
+                        </div>
+                        <div class="post-description">
+                            <p class="post-liked">Liked by sarasshree and others</p>
+                            <p class="title"><span>
+                                    Cardi B </span>Monsoon fury rained havoc in various parts of Himachal Pradesh this
+                                year with the death toll crossing 260. The rains...<br> more</p>
+                            <p class="comments"> view all comments</p>
+                        </div>
+                    </div>
+                    <div class="post-main">
+                        <div class="post-header">
+                            <div class="post-left-header">
+                                <div class="post-image">
+                                    <img decoding="async"
+                                        src="https://images.unsplash.com/photo-1567591370504-80142b28f1c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a3Jpc2huYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                                        alt="">
+                                </div>
+                                <p class="post-username">
+                                    Lady Gaga</p>
+                                <i class="fa-solid fa-certificate"></i>
+                                <span class="one-day"> . 5d </span>
+                            </div>
+                            <i class="fa-solid fa-grip-lines"></i>
+                        </div>
+                        <div class="post-main-image">
+                            <img decoding="async"
+                                src="https://plus.unsplash.com/premium_photo-1680807869144-9a88225849b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGdpcmxzJTIwcGhvdG98ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <div class="post-fotter">
+                            <div class="post-fotter-left">
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-regular fa-message"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                            <i class="fa-regular fa-bookmark"></i>
+                        </div>
+                        <div class="post-description">
+                            <p class="post-liked">Liked by sarasshree and others</p>
+                            <p class="title"><span>
+                                    Cardi B </span>Monsoon fury rained havoc in various parts of Himachal Pradesh this
+                                year with the death toll crossing 260. The rains...<br> more</p>
+                            <p class="comments"> view all comments</p>
+                        </div>
+                    </div>
+                    <div class="post-main">
+                        <div class="post-header">
+                            <div class="post-left-header">
+                                <div class="post-image">
+                                    <img decoding="async"
+                                        src="https://images.unsplash.com/photo-1567591370504-80142b28f1c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a3Jpc2huYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                                        alt="">
+                                </div>
+                                <p class="post-username">
+                                    Lady Gaga</p>
+                                <i class="fa-solid fa-certificate"></i>
+                                <span class="one-day"> . 5d </span>
+                            </div>
+                            <i class="fa-solid fa-grip-lines"></i>
+                        </div>
+                        <div class="post-main-image">
+                            <img decoding="async"
+                                src="https://plus.unsplash.com/premium_photo-1688821124243-4c8a1bd1e285?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTl8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <div class="post-fotter">
+                            <div class="post-fotter-left">
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-regular fa-message"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                            <i class="fa-regular fa-bookmark"></i>
+                        </div>
+                        <div class="post-description">
+                            <p class="post-liked">Liked by sarasshree and others</p>
+                            <p class="title"><span>
+                                    Cardi B </span>Monsoon fury rained havoc in various parts of Himachal Pradesh this
+                                year with the death toll crossing 260. The rains...<br> more</p>
+                            <p class="comments"> view all comments</p>
+                        </div>
+                    </div>
+                    <div class="post-main">
+                        <div class="post-header">
+                            <div class="post-left-header">
+                                <div class="post-image">
+                                    <img decoding="async"
+                                        src="https://images.unsplash.com/photo-1567591370504-80142b28f1c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a3Jpc2huYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                                        alt="">
+                                </div>
+                                <p class="post-username">
+                                    Lady Gaga</p>
+                                <i class="fa-solid fa-certificate"></i>
+                                <span class="one-day"> . 5d </span>
+                            </div>
+                            <i class="fa-solid fa-grip-lines"></i>
+                        </div>
+                        <div class="post-main-image">
+                            <img decoding="async"
+                                src="https://plus.unsplash.com/premium_photo-1694941311111-05d41b8b9f34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
+                                alt="">
+                        </div>
+                        <div class="post-fotter">
+                            <div class="post-fotter-left">
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-regular fa-message"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                            <i class="fa-regular fa-bookmark"></i>
+                        </div>
+                        <div class="post-description">
+                            <p class="post-liked">Liked by sarasshree and others</p>
+                            <p class="title"><span>
+                                    Cardi B </span>Monsoon fury rained havoc in various parts of Himachal Pradesh this
+                                year with the death toll crossing 260. The rains...<br> more</p>
+                            <p class="comments"> view all comments</p>
+                        </div>
+                    </div>
+                    <div class="post-main">
+                        <div class="post-header">
+                            <div class="post-left-header">
+                                <div class="post-image">
+                                    <img decoding="async"
+                                        src="https://images.unsplash.com/photo-1567591370504-80142b28f1c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a3Jpc2huYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                                        alt="">
+                                </div>
+                                <p class="post-username">
+                                    Lady Gaga</p>
+                                <i class="fa-solid fa-certificate"></i>
+                                <span class="one-day"> . 5d </span>
+                            </div>
+                            <i class="fa-solid fa-grip-lines"></i>
+                        </div>
+                        <div class="post-main-image">
+                            <img decoding="async"
+                                src="https://images.unsplash.com/photo-1584714268709-c3dd9c92b378?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHVybHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <div class="post-fotter">
+                            <div class="post-fotter-left">
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-regular fa-message"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                            <i class="fa-regular fa-bookmark"></i>
+                        </div>
+                        <div class="post-description">
+                            <p class="post-liked">Liked by sarasshree and others</p>
+                            <p class="title"><span>
+                                    Cardi B </span>Monsoon fury rained havoc in various parts of Himachal Pradesh this
+                                year with the death toll crossing 260. The rains...<br> more</p>
+                            <p class="comments"> view all comments</p>
+                        </div>
+                    </div>
+                    <div class="post-main">
+                        <div class="post-header">
+                            <div class="post-left-header">
+                                <div class="post-image">
+                                    <img decoding="async"
+                                        src="https://images.unsplash.com/photo-1567591370504-80142b28f1c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a3Jpc2huYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                                        alt="">
+                                </div>
+                                <p class="post-username">
+                                    Lady Gaga</p>
+                                <i class="fa-solid fa-certificate"></i>
+                                <span class="one-day"> . 5d </span>
+                            </div>
+                            <i class="fa-solid fa-grip-lines"></i>
+                        </div>
+                        <div class="post-main-image">
+                            <img decoding="async"
+                                src="https://images.unsplash.com/photo-1598128558393-70ff21433be0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXJsfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <div class="post-fotter">
+                            <div class="post-fotter-left">
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-regular fa-message"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                            <i class="fa-regular fa-bookmark"></i>
+                        </div>
+                        <div class="post-description">
+                            <p class="post-liked">Liked by sarasshree and others</p>
+                            <p class="title"><span>
+                                    Cardi B </span>Monsoon fury rained havoc in various parts of Himachal Pradesh this
+                                year with the death toll crossing 260. The rains...<br> more</p>
+                            <p class="comments"> view all comments</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="follow-section">
+                <div class="profile-follow profile-foolow-hovering">
+                    <div class="profile-follow-left">
+                        <div class="profile-follow-image">
+                            <img decoding="async" src="https://i.postimg.cc/zB3mRnhs/apy-logo.png" alt="">
+                        </div>
+                        <div class="profile-follow-content">
+                            <p class="profile-id">Aasu_Yadav_59</p>
+                            <p class="profile-name">Aaasu Yadav</p>
+                        </div>
+                    </div>
+                    <a href="#" class="follow">switch</a>
+                </div>
+                <div class="suggestion-follow">
+                    <p class="suggestion">Suggested for you</p>
+                    <a href="#" class="see-all">see all</a>
+                </div>
+                <div class="profile-follow profile-foolow-hovering">
+                    <div class="profile-follow-left">
+                        <div class="profile-follow-image">
+                            <img decoding="async"
+                                src="https://media.istockphoto.com/id/1388253782/photo/positive-successful-millennial-business-professional-man-head-shot-portrait.webp?b=1&s=612x612&w=0&k=20&c=VsTsa0kjyZ7ALe-nyKAUfynyRxZo8H4LRMdu_ecPuOY="
+                                alt="">
+                        </div>
+                        <div class="profile-follow-content">
+                            <p class="profile-id">rohit_@135</p>
+                            <p class="profile-name">Followed by shiv_s177</p>
+                        </div>
+                    </div>
+                    <a href="#" class="follow">follow</a>
+                </div>
+                <div class="profile-follow profile-foolow-hovering">
+                    <div class="profile-follow-left">
+                        <div class="profile-follow-image">
+                            <img decoding="async"
+                                src="https://cdn.pixabay.com/photo/2022/09/08/15/16/cute-7441224_640.jpg" alt="">
+                        </div>
+                        <div class="profile-follow-content">
+                            <p class="profile-id">ubey_lih</p>
+                            <p class="profile-name">Followed by shriiiiii_89_ + 2 more
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#" class="follow">follow</a>
+                </div>
+                <div class="profile-follow profile-foolow-hovering">
+                    <div class="profile-follow-left">
+                        <div class="profile-follow-image">
+                            <img decoding="async"
+                                src="https://cdn.pixabay.com/photo/2020/08/02/18/08/woman-5458225_640.png" alt="">
+                        </div>
+                        <div class="profile-follow-content">
+                            <p class="profile-id">limsean_awersom</p>
+                            <p class="profile-name">Followed by ajeetyadav8242 +....
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#" class="follow">follow</a>
+                </div>
+                <div class="profile-follow profile-foolow-hovering">
+                    <div class="profile-follow-left">
+                        <div class="profile-follow-image">
+                            <img decoding="async"
+                                src="https://cdn.pixabay.com/photo/2021/07/19/04/36/woman-6477171_640.jpg" alt="">
+                        </div>
+                        <div class="profile-follow-content">
+                            <p class="profile-id">rootpies567t</p>
+                            <p class="profile-name">Followed by ravish_thakur31
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#" class="follow">follow</a>
+                </div>
+                <div class="profile-follow profile-foolow-hovering">
+                    <div class="profile-follow-left">
+                        <div class="profile-follow-image">
+                            <img decoding="async"
+                                src="https://cdn.pixabay.com/photo/2019/11/01/06/11/profile-4593404_640.jpg" alt="">
+                        </div>
+                        <div class="profile-follow-content">
+                            <p class="profile-id">michal_kuu</p>
+                            <p class="profile-name">New to Instagram</p>
+                        </div>
+                    </div>
+                    <a href="#" class="follow">follow</a>
+                </div>
+                <p class="copyrights"> @All rights reserved by MuhammadYasin</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
