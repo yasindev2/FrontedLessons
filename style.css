@@ -1,0 +1,79 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Background style */
+.background {
+    background: url('https://d150u0abw3r906.cloudfront.net/wp-content/uploads/2023/01/image4-1024x576.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Login box */
+.login-box {
+    background-color: #1e1e1e;
+    padding: 30px 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #000;
+    width: 300px;
+    color: white;
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 4px;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.login-box button:hover {
+    background-color: #555;
+}
+
+.login-box a {
+    display: block;
+    color: #ccc;
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login-box .options button {
+    margin-top: 8px;
+    background-color: #333;
+}
+
+.login-box .create {
+    margin-top: 15px;
+    font-weight: bold;
+}
