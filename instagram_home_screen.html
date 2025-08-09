@@ -601,8 +601,45 @@ styling navbar section ended here */
         }
 
 
+        .navbar {
+            display: flex;
+        }
 
-        
+        .nav-hidden i {
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: var(--font-color);
+            transition: all 0.2s ease;
+        }
+
+        .nav-hidden-logo {
+            width: 136px;
+            cursor: pointer;
+        }
+
+        .nav-hidden-logo img {
+            width: 100%;
+        }
+
+        .nav-hide-2 {
+            display: flex;
+            gap: 30px;
+        }
+
+        @media (max-width: 750px) {
+            .nav-hidden {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                padding-inline: 10px;
+                align-items: center;
+            }
+
+            .middle-section .post-section {
+                padding: 0;
+                padding-bottom: 20px;
+            }
+        }
     </style>
 </head>
 
